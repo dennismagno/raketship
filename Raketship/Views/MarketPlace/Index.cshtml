@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Raketship.Models.Table>
+@{
+    ViewBag.Title = "Marketplace";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <table class="table table-bordered table-head-bg-info table-bordered-bd-info mt-4">
+                    <thead>
+                        <tr>
+                            <th scope="col">Invoice No.</th>
+                            <th scope="col">Company Name</th>
+                            <th scope="col">Amount</th>
+                            <th scope="col">Rating</th>
+                            <th scope="col">Term</th>
+                            <th scope="col">Amount Funded</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => item.Number)</td>
+                                <td>@Html.DisplayFor(modelItem => item.CompanyName)</td>
+                                <td style="text-align:right;">@Html.DisplayFor(modelItem => item.Amount)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Rating)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Term)</td>
+                                <td style ="text-align:right;">@Html.DisplayFor(modelItem => item.AmountFunded)</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div> 
+</div>

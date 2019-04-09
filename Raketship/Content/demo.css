@@ -303,3 +303,16 @@ body[data-background-color="dark"] .demo-icon .icon-class {
 		right: -85%;
 	}
 }
+
+.card-amount {
+    font-size:25px;
+}
+
+.card-main-display {
+    min-width:250px;
+    margin-bottom:10px;
+}
+
+.card-body {
+    padding:15px !important;
+}
