@@ -325,10 +325,29 @@
                                 </a>
                             </li>
                             <li class="nav-item" id="nav-item-funds">
-                                <a href="#funds">
+                                <a data-toggle="collapse" href="#funds" class="collapsed" aria-expanded="false">
                                     <i class="fas fa-money-bill"></i>
                                     <p>Funds</p>
                                 </a>
+                                <div class="collapse" id="funds">
+                                    <ul class="nav nav-collapse">
+                                        <li>
+                                            <a href='@Url.Action("Index", "Funds")'>
+                                                <span class="sub-item">Transaction Logs</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href='@Url.Action("Add", "Funds")'>
+                                                <span class="sub-item">Add Funds</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href='@Url.Action("Withdraw", "Funds")'>
+                                                <span class="sub-item">Withdraw Funds</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
                             </li>
                             <li class="nav-item" id="nav-item-marketplace">
                                 <a href='@Url.Action("Index", "MarketPlace")'>
@@ -429,7 +448,16 @@
             $(function () {
                 var navSelector = '@ViewBag.ActiveNavItem';
                 if (navSelector) {
-                    $("#nav-item-" + navSelector).addClass('active');
+                    var navItem = $("#nav-item-" + navSelector);
+                    navItem.addClass('active');
+
+                    var navCollapse = navItem.find(".collapsed");
+                    if (navCollapse) {
+                        navCollapse.removeClass("collapsed");
+                        navCollapse.attr("aria-expanded", "true");
+                    }
+                    
+                    navItem.find(".collapse").addClass("show");
                 }
             });
         </script>
