@@ -17,7 +17,7 @@ namespace Raketship.Controllers
             ViewBag.ActiveNavItem = "marketplace";
 
             MarketPlaceContext db = new MarketPlaceContext();
-            IEnumerable<Table> tables = db.Table.AsEnumerable();
+            IEnumerable<MarketPlace> tables = db.MarketPlace.AsEnumerable();
 
             return View(tables);
         }

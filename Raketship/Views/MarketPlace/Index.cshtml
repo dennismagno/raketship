@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Raketship.Models.Table>
+﻿@model IEnumerable<Raketship.Models.MarketPlace>
 @{
     ViewBag.Title = "Marketplace";
 }
@@ -22,12 +22,12 @@
                         @foreach (var item in Model)
                         {
                             <tr>
-                                <td>@Html.DisplayFor(modelItem => item.Number)</td>
+                                <td>@Html.DisplayFor(modelItem => item.InvNumber)</td>
                                 <td>@Html.DisplayFor(modelItem => item.CompanyName)</td>
                                 <td style="text-align:right;">@Html.DisplayFor(modelItem => item.Amount)</td>
                                 <td>@Html.DisplayFor(modelItem => item.Rating)</td>
                                 <td>@Html.DisplayFor(modelItem => item.Term)</td>
-                                <td style ="text-align:right;">@Html.DisplayFor(modelItem => item.AmountFunded)</td>
+                                <td style ="text-align:right;">@Html.DisplayFor(modelItem => item.CurrentFund)</td>
                             </tr>
                         }
                     </tbody>

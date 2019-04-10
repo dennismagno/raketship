@@ -12,26 +12,38 @@ namespace Raketship.Models
     public class MarketPlaceContext : DbContext
     {
         public MarketPlaceContext()
-            : base("DefaultConnection")
+            : base("RaketShipConnection")
         {
         }
 
-        public DbSet<Table> Table { get; set; }
+        public DbSet<MarketPlace> MarketPlace { get; set; }
     }
 
-    [Table("Table")]
-    public class Table
-    {
+    [Table("MarketPlace")]
+    public class MarketPlace
+	{
         [Key]
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
-        public Guid Id { get; set; }
-        public string Number { get; set; }
-        public string CompanyName { get; set; }
-        [DisplayFormat(DataFormatString = "{0:N}")]
+        public int InvId { get; set; }
+		public Guid EOLInvId { get; set; }
+		public string InvNumber { get; set; }
+		public Guid InvOwner { get; set; }
+		[NotMapped]
+		public string CompanyName { get; set; }
+		[NotMapped]
+		[DisplayFormat(DataFormatString = "{0:N}")]
         public decimal Amount { get; set; }
-        public string Term { get; set; }
+        public int PaymentTerm { get; set; }
+		[NotMapped]
+		public string Term {
+			get
+			{
+				return  String.Concat(PaymentTerm.ToString()," ","days");
+			}
+		}
+		[NotMapped]
         public string Rating { get; set; }
         [DisplayFormat(DataFormatString = "{0:N}")]
-        public decimal AmountFunded { get; set; }
+        public decimal CurrentFund { get; set; }
     }
 }
